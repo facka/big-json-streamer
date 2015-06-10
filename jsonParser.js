@@ -16,6 +16,7 @@ var SEMICOLON = ':';
 var BACKLSLASH = '\\';
 var COMMA = ',';
 var OPENBRACKET = '[';
+var CLOSEBRACKET = ']';
 
 var j = 0;
 var readingKey, readingValue;
@@ -25,6 +26,7 @@ var stopReadingValue;
 var aux;
 var auxValue;
 var lastKey;
+var collection;
 
 var checkStopReadingKey = function() {
     return (currentChar === QUOTES) || ((j === content.length) ? LIMIT : NULL);
@@ -144,7 +146,7 @@ function parse(string) {
         }
 
         if (currentChar === OPENBRACKET) {
-            //console.log("reading collection: " + lastKey);
+            collection = lastKey;
         }
 
         if (currentChar === CLOSECURLYBRACES) {
@@ -156,7 +158,7 @@ function parse(string) {
                 try {
                     var json = JSON.parse(jsonString);
 
-                    callback(json, jsonString);
+                    callback(json, jsonString, collection);
                 }
                 catch (err) {
                     console.log("ERROR:" + jsonString.length);
