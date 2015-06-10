@@ -4,11 +4,11 @@
 /*global console*/
 
 var fs = require('fs');
-var jsonParser = require('./jsonParser.js');
+var jsonParser = require('../jsonParser.js');
 
 var file = process.argv[2];
 var output = file ? fs.createWriteStream(file) : process.stdout;
-var input = fs.createReadStream('../bigfile.json');
+var input = fs.createReadStream('./test.json');
 
 //Set readableStream from where read the json
 jsonParser.setInput(input);
