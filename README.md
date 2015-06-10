@@ -2,7 +2,7 @@
 NodeJS: Parse big JSON files using streams.
 
 
-Ready to parse big files with the following format:
+Parse big files with the following format streaming to the output the choosen jsons:
 
 
     {
