@@ -26,14 +26,14 @@ jsonParser.onJson(function(json, string) {
 //    Filter json accessing to the properties and push it to a buffer
 //    if (json.type === 'entity') {
         
-       verticesBuffer.push(string);
+       buffer.push(string);
 //    }
 
 });
 
 //Set callback to do something when the big json finish.
 jsonParser.onEnd(function() {
-    edgesBuffer.end();
+    buffer.end();
     output.write('}');
 });
 
