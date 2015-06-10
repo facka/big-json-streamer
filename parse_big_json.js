@@ -21,7 +21,7 @@ output.write('{"all":');
 jsonParser.setFile('./bigfile.json');
 
 //Set callback to get each json found
-jsonParser.onJson(function(json, string) {
+jsonParser.onJson(function(json, string, colection) {
 
 //    Filter json accessing to the properties and push it to a buffer
 //    if (json.type === 'entity') {
