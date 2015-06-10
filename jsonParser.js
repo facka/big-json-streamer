@@ -197,6 +197,18 @@ module.exports = {
     },
     parse: function () {
 
+        if (!(callback && (typeof callback === 'function'))) {
+            throw new Error('Please set onJson callback function to get each Json object');
+        }
+
+        if (!input) {
+            throw new Error('Please set input as readable stream');
+        }
+
+        if (!output) {
+            throw new Error('Please set output as writeable stream');
+        }
+
         output.write('{');
 
         input.on('data', function(chunk) {
@@ -207,7 +219,9 @@ module.exports = {
         input.on('end', function() {
             buffer.end();
             output.write('}');
-            onEnd();
+            if (onEnd) {
+               onEnd();
+            }
         });
     },
     onJson: function(cb) {
