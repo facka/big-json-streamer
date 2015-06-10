@@ -35,7 +35,7 @@ Parse big files with the following format streaming to the output the choosen js
 jsonParser.onJson(function(json, string, collection) {
         return string;
 });
-```javascript
+```
     
 
 ##Example
@@ -71,4 +71,4 @@ jsonParser.onEnd(function() {
 //Start the parsing
 jsonParser.parse();
 
-```javascript
+```
