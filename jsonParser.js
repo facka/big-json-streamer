@@ -181,8 +181,6 @@ module.exports = {
     parse: function () {
         var readableStream = fs.createReadStream(fileName);
 
-        console.log(readableStream.length);
-
         readableStream.on('data', function(chunk) {
             parse(chunk.toString());
 
