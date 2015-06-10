@@ -1,4 +1,4 @@
-# jsonParser
+# big-json-streamer
 NodeJS: Parse big JSON files using streams.
 
 
