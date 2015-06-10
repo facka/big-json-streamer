@@ -22,7 +22,7 @@ var ArrayBuffer = function(_name, _output) {
             this.output.write(this.buffer.join(','));
         }
         else {
-            this.output.write('[');
+            this.output.write(this.name + ':[');
             this.output.write(this.buffer.join(','));
         }
         this.pushedFirstItem = true;

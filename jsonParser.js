@@ -1,6 +1,7 @@
 var fs = require('fs');
+var ArrayBuffer = require('./arrayBuffer.js');
 
-var fileName, callback, onEnd;
+var input, output, callback, onEnd, buffer;
 
 var bracketsOpen = [];
 var previousChar = '';
@@ -93,7 +94,7 @@ function readString() {
         }
         else {
             console.log("JSON: " + bracketsOpen[bracketsOpen.length-1].json);
-            console.log("stringvalue: " + lastKey);
+            console.log("previousChar: " + previousChar);
             throw new Error('Unable to identify if the string is key  or value: ' + previousChar);
         }
     }
@@ -146,49 +147,66 @@ function parse(string) {
         }
 
         if (currentChar === OPENBRACKET) {
+            if (collection) {
+                buffer.end();
+                buffer.flush();
+            }
             collection = lastKey;
+            buffer = new ArrayBuffer(lastKey, output);
         }
 
         if (currentChar === CLOSECURLYBRACES) {
             var bracketItem = bracketsOpen.pop();
             var jsonString = bracketItem.json;
             if (bracketsOpen.length) {
-                bracketsOpen[bracketsOpen.length-1].json += '"[OBJECT]"';
+                //bracketsOpen[bracketsOpen.length-1].json += '"[OBJECT]"';
                 jsonString += CLOSECURLYBRACES;
                 try {
                     var json = JSON.parse(jsonString);
 
-                    callback(json, jsonString, collection);
+                    var response = callback(json, jsonString, collection);
+
+                    if (response) {
+                        buffer.push(response);
+                    }
                 }
                 catch (err) {
                     console.log("ERROR:" + jsonString.length);
                     console.log("MESSAGE:" + err);
-                    //throw err;
+                    throw err;
                 }
             }
 
             continue;
         }
 
+        if (currentChar === '\n' || currentChar === ' ') {
+            continue;
+        }
         previousChar = currentChar;
         bracketsOpen[bracketsOpen.length-1].json += currentChar;
     }
 }
 
-
 module.exports = {
-    setFile: function (_fileName) {
-        fileName = _fileName;
+    setInput: function (_input) {
+        input = _input;
+    },
+    setOutput: function (_output) {
+        output = _output;
     },
     parse: function () {
-        var readableStream = fs.createReadStream(fileName);
 
-        readableStream.on('data', function(chunk) {
+        output.write('{');
+
+        input.on('data', function(chunk) {
             parse(chunk.toString());
 
         });
 
-        readableStream.on('end', function() {
+        input.on('end', function() {
+            buffer.end();
+            output.write('}');
             onEnd();
         });
     },
