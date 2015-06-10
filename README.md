@@ -4,7 +4,6 @@ NodeJS: Parse big JSON files using streams.
 
 Ready to parse big files with the following format:
 
-´´´javascript
 
     {
       "collection1" : [
@@ -25,7 +24,4 @@ Ready to parse big files with the following format:
           },
           ...
       ],
-
     }
-
-´´´javascript
