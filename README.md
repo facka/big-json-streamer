@@ -1,6 +1,8 @@
 # big-json-streamer
-NodeJS: Parse big JSON files using streams.
 
+[![NPM Version][https://www.npmjs.com/static/images/npm-logo.svg]][https://www.npmjs.com/package/big-json-streamer]
+
+NodeJS: Parse big JSON files using streams.
 
 Parse big files with the following format streaming to the output the choosen jsons:
 
