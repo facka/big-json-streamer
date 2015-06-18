@@ -4,7 +4,8 @@
   "description": "Parse big json data using streams",
   "main": "jsonParser.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha ./test/*",
+    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,12 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/facka/big-json-streamer/issues"
+  },
+  "devDependencies": {
+    "coveralls": "2.10.0",
+    "expect": "^1.6.0",
+    "istanbul": "0.3.5",
+    "mocha": "2.0.0",
+    "stream": "0.0.2"
   }
 }
