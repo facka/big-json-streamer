@@ -1,7 +1,7 @@
-# big-json-streamer
-[![NPM](https://nodei.co/npm/big-json-streamer.png)](https://npmjs.org/package/big-json-streamer)
+# big-json-streamer  [![Coverage Status](https://coveralls.io/repos/facka/big-json-streamer/badge.svg)](https://coveralls.io/r/facka/big-json-streamer)
 
-[![Coverage Status](https://coveralls.io/repos/facka/big-json-streamer/badge.svg)](https://coveralls.io/r/facka/big-json-streamer)
+[![NPM](https://nodei.co/npm/big-json-streamer.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/big-json-streamer/)
+
 
 NodeJS: Parse big JSON files using streams.
 
