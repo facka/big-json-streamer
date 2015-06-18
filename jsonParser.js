@@ -213,7 +213,6 @@ module.exports = {
 
         input.on('data', function(chunk) {
             parse(chunk.toString());
-
         });
 
         input.on('end', function() {
