@@ -1,4 +1,5 @@
 # big-json-streamer
+[![NPM](https://nodei.co/npm/big-json-streamer.png)](https://npmjs.org/package/big-json-streamer)
 
 NodeJS: Parse big JSON files using streams.
 
