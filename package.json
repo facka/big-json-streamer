@@ -1,11 +1,11 @@
 {
   "name": "big-json-streamer",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Parse big json data using streams",
   "main": "jsonParser.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha ./test/*",
-    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*"
+    "test": "./node_modules/mocha/bin/mocha ./test/jsonParserTest.js",
+    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/jsonParserTest.js"
   },
   "repository": {
     "type": "git",

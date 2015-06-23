@@ -93,9 +93,7 @@ function readString() {
             isKey = false;
         }
         else {
-            console.log("JSON: " + bracketsOpen[bracketsOpen.length-1].json);
-            console.log("previousChar: " + previousChar);
-            throw new Error('Unable to identify if the string is key  or value: ' + previousChar);
+            throw new Error('Unable to identify if the string is key or value: ' + previousChar);
         }
     }
     j++;
@@ -148,8 +146,8 @@ function parse(string) {
 
         if (currentChar === OPENBRACKET) {
             if (collection) {
-                buffer.end();
-                buffer.flush();
+                buffer.end(true);
+                //buffer.flush();
             }
             collection = lastKey;
             buffer = new ArrayBuffer(lastKey, output);
@@ -171,9 +169,7 @@ function parse(string) {
                     }
                 }
                 catch (err) {
-                    console.log("ERROR:" + jsonString.length);
-                    console.log("MESSAGE:" + err);
-                    throw err;
+                    throw new Error('Invalid json.');
                 }
             }
 
@@ -197,7 +193,7 @@ module.exports = {
     },
     parse: function () {
 
-        if (!(callback && (typeof callback === 'function'))) {
+        if (!callback || !(callback && (typeof callback === 'function'))) {
             throw new Error('Please set onJson callback function to get each Json object');
         }
 

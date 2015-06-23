@@ -8,7 +8,7 @@ var jsonParser = require('../jsonParser.js');
 
 var file = process.argv[2];
 var output = file ? fs.createWriteStream(file) : process.stdout;
-var input = fs.createReadStream('./test.json');
+var input = fs.createReadStream('../test/test.json');
 
 //Set readableStream from where read the json
 jsonParser.setInput(input);
@@ -27,7 +27,7 @@ jsonParser.onJson(function(json, string, collection) {
 
 //Set callback to do something when the big json finish.
 jsonParser.onEnd(function() {
-    console.log('End!');
+   // do something
 });
 
 //Start the parsing
