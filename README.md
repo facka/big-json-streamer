@@ -1,5 +1,7 @@
 # big-json-streamer  [![Coverage Status](https://coveralls.io/repos/facka/big-json-streamer/badge.svg)](https://coveralls.io/r/facka/big-json-streamer)
 
+[![Join the chat at https://gitter.im/facka/big-json-streamer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/facka/big-json-streamer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![NPM](https://nodei.co/npm/big-json-streamer.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/big-json-streamer/)
 
 
