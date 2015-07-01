@@ -1,6 +1,6 @@
 {
   "name": "big-json-streamer",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Parse big json data using streams",
   "main": "jsonParser.js",
   "scripts": {
